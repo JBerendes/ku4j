@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+        <style type="text/css">
+            html {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: #033;
+                    font-size:12px;
+            }
+            table {
+                    margin:20px 0;
+                    width:960px;
+                    border-collapse:collapse;
+                    border:solid 1px #ccc;
+            }
+            caption { text-align:left; }
+            tr { padding:5px; }
+            td { 
+                    width:3px; 
+                    border:solid 1px #ccc; 
+            }
+            td+td { width:400px; }
+            td+td+td { width:500px; }
+        </style>
+    </head>
+    <body>
+        <h2>$.observer</h2>
+        <pre>
+            /* Create a subscriber class that 
+             * subclasses $.Class and has
+             * a property, id and a method, alert.
+             */
+            var subscriber = function(){ subscriber.base.call(this); }
+            subscriber.prototype = {
+                id: function(id){ return this.property("id", id); },
+                alert: function(){ alert($.str.format("Calling {0}", this.id())); }
+            }
+            $.ext(subscriber, $.Class);
+            
+            // Create an observer and two subscribers
+                var observer = $.observer(),
+                        subscriber1 = (new subscriber()).id("subscriber1"),
+               subscriber2 = (new subscriber()).id("subscriber2");
+            
+            /* Subscribe to the observer 
+             * ensuring to call in the context of the
+             * subscribing subscriber
+             */
+                var s1 = subscriber1,
+                s2 = subscriber2; 
+                
+           observer
+                .add(s1.alert, s1, s1.id())  
+                .add(s2.alert, s2, s2.id());
+                
+            //Notify subscribers
+            observer.notify();
+            
+            //Remove subscriber1
+            observer.remove(s1.id());
+            
+            //Notify subscribers
+            observer.notify();
+            
+            //Remove subscriber2
+            observer.remove(s2.id());
+            
+            alert(observer.isEmpty());
+        </pre>
+        <hr />
+        <table cellpadding="10">
+            <caption>Constructors</caption> 
+            <tbody>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>API</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>$.observer()</td>
+                    <td>Create an empty $.observer</td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellpadding="10">
+            <caption>Methods</caption> 
+            <tbody>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>API</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>add(method:Function, scope:Object, id:string):this</td>
+                    <td>Subscibe to the observer. The id argument can be used to later remove individual subscibers from the observer.</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>remove(id:string):this</td>
+                    <td>Remove a subscriber from the observer whose with the identifer id.</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>clear():this</td>
+                    <td>Remove all subsribers from the observer</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>notify():this</td>
+                    <td>Calls each of the current subscribers. Can pass arguments that will be passed to each subsciber. This is very useful for creating event models.</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>isEmpty():Boolean</td>
+                    <td>Returns true if the observer has no subscribers</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

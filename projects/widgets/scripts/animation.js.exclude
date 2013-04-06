@@ -1,0 +1,32 @@
+function animation(){
+    this._list = $.list();
+}
+animation.prototype = {
+    then: function(){
+        //This method starts after the previous command completes
+    },
+    and: function(){
+        //This method creates commands that cause thing to happen simultaniously
+    },
+
+    to(): function(){ },
+    ease: function(){ },
+    spring: function(){ },
+
+    pinTo: function(){ },
+    fadeTo: function(){ },
+    sizeTo: function(){ },
+    fitTo: function(){ },
+    growTo: function(){ },
+
+    _add: function(){
+        var l = this._commands;
+
+    },
+
+    runOn: function(sprite){
+
+    }
+}
+$.ext(animation, $.Class);
+$.animation = function(sprite){ return new animation(sprite); }

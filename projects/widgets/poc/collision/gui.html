@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <link type="text/css" rel="stylesheet" href="particle.css" />
+    <script type="text/javascript" language="javascript1.5" src="../../../../_dependencies/jquery.js"></script>
+    <script type="text/javascript" language="javascript1.5" src="../../../../ku4j-min.js"></script>
+    <script type="text/javascript" language="javascript1.5" src="particle.js"></script>
+    <title>Collision</title>
+</head>
+<body>
+    <div class="js-particle-circle css-particle-circle"></div>
+    <div class="js-particle-square css-particle-square"></div>
+
+    <script type="text/javascript" language="javascript1.5">
+        var circle, square;
+        $(function(){
+            var circleDom = $(".js-particle-circle")[0],
+                squareDom = $(".js-particle-square")[0];
+            circle = $.particle(circleDom);
+            square = $.particle(squareDom);
+
+            //Particles need to have a collision detection strategy
+        });
+    </script>
+</body>
+</html>

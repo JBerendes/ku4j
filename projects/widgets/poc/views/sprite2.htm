@@ -1,0 +1,59 @@
+<!DOCTYPE >
+<HTML>
+<head>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+    <style>
+        html{ font-family: Arial; }
+        body{
+            width: 500px;
+            margin:auto;
+            border: solid #000;
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+        #sprite1{
+            border:solid #f00 5px;
+            width:400px;
+            height:400px;
+            top:100px;
+            left:100px;
+            overflow:hidden;
+        }
+        .red{
+            background-color: #0f0;
+        }
+        #sprite2{
+            border:solid #f00 5px;
+            width:400px;
+            height:400px;
+        }
+        #sprite3{
+            border:solid #00f 5px;
+            width:600px;
+            height:600px;
+        }
+        .ku-pinner{
+            position: absolute;
+        }
+        .content{
+            border: solid thin #000;
+            width:600px;
+            height:600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="log"></div>
+    <div id="sprite1">
+        <!--div id="sprite3"></div-->
+    </div>
+    <div id="sprite2" class="red" >Brady</div>
+    <script>
+        $(function(){
+            sprite2 = $.sprite($("#sprite2")[0]);
+        });
+    </script>
+</body>
+</html>

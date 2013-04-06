@@ -1,0 +1,53 @@
+<!DOCTYPE>
+<html>
+<head>
+	<link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+	<script src="../../../_dependencies/jquery.js"></script>
+	<script src="../../../_release/scripts/ku4j.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="../ku4j-cssTest.js"></script>
+	
+	<!-- Tests -->
+    <script type="text/javascript" src="tests/model/capabilities/result.js"></script>
+    <script type="text/javascript" src="tests/model/testing/test.js"></script>
+    <script type="text/javascript" src="tests/model/testing/testPlan.js"></script>
+    <script type="text/javascript" src="tests/model/testing/suite.js"></script>
+    <script type="text/javascript" src="tests/model/cssTest.js"></script>
+
+    <script type="text/javascript" src="tests/persistence/cache.js"></script>
+
+    <script type="text/javascript" src="tests/views/form.js"></script>
+    <script type="text/javascript" src="tests/views/results.js"></script>
+    <script type="text/javascript" src="tests/views/cssTest.js"></script>
+
+    <script type="text/javascript" src="tests/controllers/cssTest.js"></script>
+
+</head>
+<body>
+<h1 id="qunit-header">cssTest</h1>
+<h2 id="qunit-banner"></h2>
+<div id="qunit-testrunner-toolbar"></div>
+<h2 id="qunit-userAgent"></h2>
+<ol id="qunit-tests"></ol>
+<div id="qunit-fixture"></div>
+<div id="worksheet" class="worksheet" style="display:block;">
+	<div class="test-dom" style="position:absolute;top:10px;">dom</div>
+    
+    <input id="loadField" type="text" />
+    <button id="loadButton">load</button>
+    <select id="suiteField">
+        <optgroup label="tests">
+            <option value="one">one</option>
+            <option value="two">two</option>
+        </optgroup>
+    </select>
+    <button id="testButton">run</button>
+    <div id="message"></div>
+    
+    <div id="indicator"></div>
+    <div id="resultList"></div>
+</div>
+</body>
+</html>

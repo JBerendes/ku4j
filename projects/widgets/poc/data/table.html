@@ -1,0 +1,42 @@
+<!DOCTYPE >
+<HTML>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: solid 1px #ccc;
+            padding: 3px 8px;
+        }
+    </style>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script> 
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+</head>
+<body>
+
+    <label for="columnKey">Column Key</label>
+    <input id="columnKey" type="text"/>  <br/>
+
+    <label for="columnValue">Column Value</label>
+    <input id="columnValue" type="text"/>  <br/><br/>
+
+    <button onclick="addColumn();">Add Column</button>
+
+    <div class="js-table"></div>
+    <script language="javascript" type="text/javascript">
+        var table;
+
+        $(function(){
+            table = $.table()
+                        .addColumn("name", null, "Name")
+                        .addColumn("number", null, "Number")
+                        .addRow("Row1", {name: "John", number:"123"})
+                        .addColumn("other", {Row1: "too"}, "Other")
+                        .addRow("Row2", {name: "jane", number:"432", other: "another"})
+                        .addColumn("another", {Row2: "yes", Row1: "no"}, "ANOTHER")
+                        .appendTo($(".js-table")[0]);
+        });
+    </script>
+</body>
+</html>

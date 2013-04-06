@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+html {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #033;
+	font-size:12px;
+}
+table {
+	margin:20px 0;
+	width:960px;
+	border-collapse:collapse;
+	border:solid 1px #ccc;
+}
+caption { text-align:left; }
+tr { padding:5px; }
+td { 
+	width:3px; 
+	border:solid 1px #ccc; 
+}
+td+td { width:400px; }
+td+td+td { width:500px; }
+-->
+</style>
+</head>
+<body>
+<h2>$.dto</h2>
+
+<hr/>
+
+<table cellpadding="10">
+  <caption>
+    Constructors
+  </caption>
+  <tr>
+    <th>&nbsp;</th>
+    <th>API</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>$.dto()</td>
+    <td>Create an empty $.dto</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>$.dto(object:Object)</td>
+    <td>Create a $.dto initialized with an object</td>
+  </tr>
+</table>
+
+<table cellpadding="10">
+<caption>
+    Methods
+  </caption>
+  <tr>
+    <th>&nbsp;</th>
+    <th>API</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>parseJson(json:string):$.dto</td>
+    <td>Parse an instance of $.dto from a Json string</td>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>parseQueryString(queryString:string):$.dto</td>
+    <td>Parse and instace of $.dto from a query string</td>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>load(name:string):$.dto</td>
+    <td>Parse an instance of $.dto from a saved cookie</td>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>toJson():string</td>
+    <td>Outputs a dto as a JSON string</td>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>toQueryString():string</td>
+    <td>Outputs a dto as a query string
+    </td>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>save(name:string):void</td>
+    <td>Saves the $.dto to a cookie with the specified name</td>
+  </tr>
+  <tr>
+    <td>+</td>
+    <td>erase(name:string):void</td>
+    <td>Erases the cookie at the specified name</td>
+  </tr>
+</table>
+</body>
+</html>

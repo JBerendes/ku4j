@@ -1,0 +1,32 @@
+<!DOCTYPE >
+<HTML>
+<head>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div>
+    <h3>$.media()</h3>
+</div>
+<div id="worksheet">
+    <video id="video1" width="420">
+        <source src="http://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+        <source src="http://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+        Your browser does not support HTML5 video.
+    </video>
+    <span class="display"></span>
+</div>
+<script type="text/javascript" language="javascript">
+    var media;
+    $(function(){
+        media = $.media($("#video1")[0]);
+
+        var display = $.dom($(".display")[0]);
+        media.onPlayheadChanged(function(v){ display.html($.math.round(v.remaining(),0)); });
+    });
+</script>
+</body>
+</html>

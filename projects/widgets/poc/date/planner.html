@@ -1,0 +1,202 @@
+<!DOCTYPE >
+<HTML>
+<head>
+    <style>
+        .ku-calendar-controls {
+            position: relative;
+            width: 175px;
+            border: solid 1px transparent;
+        }
+        .ku-calendar {
+            font-family: Helvetica,Arial,sans-serif;
+            position: relative;
+            margin: 30px 0 0;
+        }
+        .ku-calendar-prevButton,
+        .ku-calendar-nextButton {
+            width: 20px;
+            height: 20px;
+            position: absolute;
+        }
+        .ku-calendar-title {
+            position: absolute;
+            top: 5px;
+            left: 22px;
+            width: 126px;
+            text-align: center;
+        }
+        .ku-calendar-prevButton {
+            top: 2px;
+            left: 2px;
+        }
+        .ku-calendar-nextButton {
+            top: 2px;
+            right: 2px;
+        }
+        .ku-calendar .ku-sheet { }
+        .ku-calendar .ku-sheet .ku-table {
+            border-collapse: collapse;
+            width: 600px;
+            height: 450px;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-colgroup { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-caption {
+            font-size: 12px;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-head { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-head .ku-table-head-row { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-head .ku-table-head-row th {
+            font-size: 8px;
+            font-weight: normal;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row.ku-table-row-even { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row.ku-table-row-odd { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-sheet-date {
+            border: 1px solid #CCCCCC;
+            font-size: 11px;
+            padding: 3px;
+            text-align: right;
+            width: 16px;
+            cursor: pointer;
+            vertical-align: bottom;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-sheet-month {
+            border: solid 1px #CCC;
+            text-align: center;
+            font-size: 11px;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-sheet-year {
+            border: solid 1px #CCC;
+            text-align: center;
+            font-size: 10px;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-date-selected {
+            background: #aaffaa;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-past {
+
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-present { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-future {
+
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-thisMonth { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-nextMonth {
+            color: #ccc;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-weekend {
+            background: none repeat scroll 0 0 #F0F0F0;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-weekday { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-lastMonth {
+            color: #ccc;
+        }
+
+        .ku-responsebox,
+        .ku-responsebox-content {
+            position: absolute;
+        }
+        .ku-dragger-grabbed { position: absolute; }
+        .css-planner {
+            position: absolute;
+        }
+
+        .css-planner-calendar   .ku-calendar .ku-sheet .ku-table {
+            border-collapse: collapse;
+            width: 175px;
+            height: 150px;
+        }
+
+        .ku-dndScreen-helper {
+            position: absolute;
+            background: #f00;
+        }
+
+    </style>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+</head>
+<body>
+
+
+<!-- Classes -->
+<button onclick="setClass(1); return false;">Class 1</button>
+<button onclick="setClass(2); return false;">Class 2</button>
+<button onclick="setClass(3); return false;">Class 3</button>
+
+<div class="js-event">Event</div>
+
+<!-- Planner -->
+<div>
+    <div class="js-planner-calendar css-planner-calendar"></div>
+    <button onclick="showPlanner(); return false;">Display Calendar</button>
+</div>
+
+<script language="javascript" type="text/javascript">
+    var mediator,
+        plannerCalendar,
+        calendar,
+        responsebox,
+        currentClass,
+        plannerContent,
+        classCalendar;
+
+    function setClass(num){
+        currentClass = num;
+    }
+
+    function showPlanner(){
+        responsebox.content(plannerContent).disableWindow().open();
+    }
+
+    function setUpCalendar(){
+        calendar.appendTo($(".js-calendar")[0]).showDates();
+        responsebox.calibrate();
+
+        setUpDropTargets();
+    }
+    function setUpDropTargets(){
+    }
+
+    function updateClassCalendar(){ }
+
+    $(function(){
+        mediator = $.mediator();
+        calendar = $.calendar().onSelect(function(d){
+            plannerCalendar.selectDate
+        });
+        responsebox = $.responsebox().onOpen(setUpCalendar),
+        dndScreen = $.dndScreen(),
+        plannerCalendar = $.calendarControlsDecorator($.calendar())
+                            .appendTo($(".js-planner-calendar")[0])
+                            .onShowDates(function(){
+                                dndScreen.clearDroppers();
+                                plannerCalendar.each(function(cell){
+                                    dndScreen.addTarget($.dndScreenTarget(cell.dom()));
+                                });
+                            }),
+
+        plannerContent = $.str.build(
+            '<div class="css-planner">',
+            '<div class="js-calendar css-calendar"></div>',
+            '<div class="js-pages css-pages">',
+                '<span class="js-page css-page">Page 92</span>',
+                '<span class="js-page css-page">Page 93</span>',
+                '<span class="js-page css-page">Page 94</span>',
+                '</div>',
+            '</div>');
+
+        plannerCalendar.showDates();
+
+        $("button").each(function(){ dndScreen.addDropper($.dndScreenDropper(this))});
+
+        dndScreen.onHit(function(target, dropper){
+            target.html(dropper.html());
+        });
+    });
+</script>
+</body>
+</html>

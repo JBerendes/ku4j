@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="generator" content=
+        "HTML Tidy for Linux/x86 (vers 11 February 2007), see www.w3.org" />
+        <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+        <title>Untitled Document</title>
+        <style type="text/css">
+            html {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: #033;
+                    font-size:12px;
+            }
+            table {
+                    margin:20px 0;
+                    width:960px;
+                    border-collapse:collapse;
+                    border:solid 1px #ccc;
+            }
+            caption { text-align:left; }
+            tr { padding:5px; }
+            td { 
+                    width:3px; 
+                    border:solid 1px #ccc; 
+            }
+            td+td { width:400px; }
+            td+td+td { width:500px; }
+        </style>
+    </head>
+    <body>
+        <h2>$.hash</h2>
+        <hr />
+        <table cellpadding="10">
+            <caption>
+                Constructors
+            </caption>
+            <tbody>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>API</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>$.hash()&nbsp;</td>
+                    <td>Creates an empty hash</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>$.hash(h:Object)<em><em>&nbsp;</em></em></td>
+                    <td>Creates a hash initialized with h</td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellpadding="10">
+            <caption>
+                Properties
+            </caption>
+            <tbody>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>API</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>count():number</td>
+                    <td>The number of key value pairs currently stored in the $.hash</td>
+                </tr>
+                <tr>
+                    <td>#</td>
+                    <td>$h</td>
+                    <td>The key value store</td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellpadding="10">
+            <caption>
+                Methods
+            </caption>
+            <tbody>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>API</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>add(key:String, value:Object):this</td>
+                    <td>Adds a new key value pair to the $.hash</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>update(key:String, value:Object):this</td>
+                    <td>Updates the value of an already stored key</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>merge(obj:Object):this</td>
+                    <td>Joins obj with $.hash. obj takes precedence in conflicts.<br /></td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>meld(obj:Object):this</td>
+                    <td>Joins obj with $.hash. $.hash takes precedence in conflicts.</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>clear():this</td>
+                    <td>Clears the $.hash of all key value pairs</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>find(key:String):Object</td>
+                    <td>Returns the value stored at key</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>findKey(value:Object)</td>
+                    <td>Returns the key for the value</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>findValue(key:String)</td>
+                    <td>(See find)</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>isEmpty():bool</td>
+                    <td>True if the $.hash contains no key value pairs</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>listKeys():$.list</td>
+                    <td>Returns a $.list of all of the stored keys</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>listValues():$.list</td>
+                    <td>Returns a $.list of all of the stored values</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>containsKey(key:String):bool</td>
+                    <td>Returns true if the $.hash contains the key</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>containsValue(value:Object):bool</td>
+                    <td>Returns true if the $.hash contains the value</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>remove(key:String):this</td>
+                    <td>Removes the key value pair stored at key</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>replicate():$.hash</td>
+                    <td>Returns a replica of this $.hash</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>toObject():Object</td>
+                    <td>Returns an Object representation of the key value pairs</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

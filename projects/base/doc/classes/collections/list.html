@@ -1,0 +1,117 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Untitled Document</title>
+        <style type="text/css">
+            html {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: #033;
+                    font-size:12px;
+            }
+            table {
+                    margin:20px 0;
+                    width:960px;
+                    border-collapse:collapse;
+                    border:solid 1px #ccc;
+            }
+            caption { text-align:left; }
+            tr { padding:5px; }
+            td { 
+                    width:3px; 
+                    border:solid 1px #ccc; 
+            }
+            td+td { width:400px; }
+            td+td+td { width:500px; }
+        </style>
+    </head>
+    <body>
+        <h2>$.list</h2>
+        <hr />
+        <table cellpadding="10">
+            <caption>Constructors</caption> 
+            <tbody>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>API</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>$.list()</td>
+                    <td>Creates an empty list</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>$.list(a:Array)</td>
+                    <td>Creates a list initialized with an array</td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellpadding="10">
+            <caption>Properties</caption> 
+            <tbody>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>API</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>count():number</td>
+                    <td>The number of values currently stored in the $.list</td>
+                </tr>
+            </tbody>
+        </table>
+        <table cellpadding="10">
+            <caption>Methods</caption> 
+            <tbody>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>API</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>add(key:String, value:Object):this</td>
+                    <td>Adds a new value to the $.list</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>clear():this</td>
+                    <td>Clears the $.list of all values</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>contains(item:Object):bool</td>
+                    <td>Returns true if the item is contained in the list</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>find(key:String):Object</td>
+                    <td>Returns the value stored at key</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>each(f:Function):this</td>
+                    <td>Will execute f for for each value in the list, passing the current value to f</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>isEmpty():bool</td>
+                    <td>True if the $.list contains no values</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>remove(item:Object):this</td>
+                    <td>Removes the item from the list</td>
+                </tr>
+                <tr>
+                    <td>+</td>
+                    <td>toArray():Array</td>
+                    <td>Returns an Array representation of the values</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

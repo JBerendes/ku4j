@@ -1,0 +1,25 @@
+var sessionTimer = function() {
+    this._onWarn = $.observer();
+    this._onTimeout = $.observer();
+
+    this._ticks = 0;
+}
+sessionTimer.prototype = {
+    warn: function(warn){ this.property("warn", warn); },
+    timeout: function(timeout){ this.property("timeout", timeout); },
+
+    onWarn: function(f, s){ this._onWarn.add(f, s); return this; },
+    onTimeout: function(f, s){ this._onTimeout.add(f, s); return this; },
+    start: function(){ this._tick(); return this; },
+    stop: function(){ clearTimeout(ku4jSessionTimer); return this; },
+    reset: function(){ this._ticks = 0; return this; },
+
+    _tick: function(){
+        this._ticks++;
+        if(this._ticks == this._warn) this._onWarn.notify(this);
+        if(this._ticks == this._timeout) this._onTimeout.notify(this);
+        var me = this;
+        ku4jSessionTimer = setTimeout(function(){ this.})
+    }
+}
+$.ext(sessionTimer, $.Class)

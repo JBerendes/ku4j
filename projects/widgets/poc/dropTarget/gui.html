@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <script language="javascript1.5" type="text/javascript" src="../../../../_dependencies/jquery.js"></script>
+    <script language="javascript1.5" type="text/javascript" src="../../../../ku4j.js"></script>
+
+    <style type="text/css">
+        .ku-dragger-dragger {
+            position:absolute;
+            cursor: pointer;
+        }
+        .ku-dropTarget-helper {
+            opacity: .5;
+        }
+        .dropperss {
+            border: solid 1px #000;
+            overflow: auto;
+            width: 100px;
+            height: 100px;
+        }
+        .droppers {
+            border: solid 1px #000;
+            overflow: auto;
+            width: 200px;
+            height: 200px;
+        }
+        .drop {
+            border: solid 1px #000;
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dropperss">
+    <div class="droppers">
+        <div class="drop"><span class="dropper">Drop1</span></div>
+        <div class="drop dropper">Drop2</div>
+        <div class="drop dropper">Drop3</div>
+        <div class="drop dropper">Drop4</div>
+        <div class="drop dropper">Drop5</div>
+        <div class="drop dropper">Drop6</div>
+        <div class="drop dropper">Drop7</div>
+    </div>
+    </div>
+
+    <div class="target1"></div>
+    <input class="target2" />
+    <script language="javascript1.5" type="text/javascript">
+        var DND;
+        $(function(){
+            document.body.appendChild($.create({"div": {}, content: $.ku.browser().fullVersion()}))
+            var d = $.dndScreen()
+                        .addTarget($.dndScreenTarget($(".target1")[0]))
+                        .addTarget($.dndScreenTarget($(".target2")[0]));
+
+            $(".drop").each(function(){
+                var dropper = $.dndScreenDropper(this),
+                    handle = $(this).find(".dropper")[0];
+                if($.exists(handle)) dropper.handle(handle);
+
+                d.addDropper(dropper);
+            });
+
+            d.onHit(function(target, dropper){
+                target.dom().value = dropper.html();
+            });
+            DND = d;
+        });
+    </script>
+</body>
+</html>

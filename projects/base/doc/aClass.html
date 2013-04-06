@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>$.Class</title>
+</head>
+<body>
+<h2>$.Class</h2>
+<p>An abstract class used to inherit the ability to leverage getter/setter properties.</p>
+<pre>
+var myClass = function(getterProperty){
+	myClass.base.call(this);
+        this._getterProperty = getterProperty;
+}
+myClass.prototype = {
+	myNumber: function(myNumber){ return this.property("myNumber", myNumber); },
+	myString: function(myString){ return this.property("myString", myString); },
+	myGetter: function(){ return this.get("getterProperty"); },
+	mySetter: function(mySetter){ return this.set("mySetter", mySetter); },
+        
+        allProperties: function(){
+            var format = "myNumber = {0}; myString = {1}; myGetter = {2}; mySetter = {3}";
+            return $.str.format(format, this._myNumber, this._myString, this._getterProperty, this._mySetter)
+        }
+}
+$.ext(myClass, $.Class);
+
+var instance = (new myClass("getterProperty"))
+	            .myNumber(1)
+                    .myString("string")
+                    .mySetter("setterProperty");
+
+console.log(1 === instance.myNumber());
+console.log("string" === instance.myString());
+console.log("getterProperty setterProperty" === instance.myGetter());
+console.log(instance.allProperties());
+
+</pre>
+<hr />
+<table cellpadding="10">
+<caption>Methods</caption> 
+<tbody>
+<tr>
+<th width="9">&nbsp;</th> 
+<th width="361">API</th> 
+<th width="278">Description</th>
+</tr>
+<tr>
+<td>+</td>
+<td>get(propertyName:String):Object</td>
+<td>Returns the value of the property named as propertyName.</td>
+</tr>
+<tr>
+<td>+</td>
+<td>set(propertyName:String, value:Object):this</td>
+<td>Sets the property named propertyName to the value passed.
+    When the property can then be accessed inside the class using the convention for private properties: _value.
+</td>
+</tr>
+<tr>
+<td>+</td>
+<td>property(propertyName:String, value:Object):Object</td>
+<td>Acts as a getter setter. If a value is passed to set the property the return value is this.
+        If a setter value is undefined the return value is the current value of the property.</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

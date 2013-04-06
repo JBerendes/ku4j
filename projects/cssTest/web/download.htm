@@ -1,0 +1,34 @@
+<!DOCTYPE>
+<html>
+<head>
+    <script src="http://localhost/assets/scripts/js/libraries/jquery/jquery.js"></script>
+    <script src="http://localhost/assets/scripts/js/libraries/ku4j/ku4j-min.js"></script>
+<head>
+<body>
+<h1>CssTest</h1>
+<div>
+    CssTest is a bookmarklet. To install:
+    <ol>
+        <li>Right click on the link below</li>
+        <li>Save link to bookmarks</li>
+        <li>Load bookmark the page you wish to test</li>
+    </ol>
+</div>
+
+<a href="javascript:void((function(){
+    if(window.CSSTEST_LOADED) { alert('CSSTEST loaded. Use cssTest.run(suiteUri)'); return; }
+    var root='http://localhost/graffiti/',
+        uri = root + 'cssTest.js',
+        d=document,
+        h=d.documentElement.getElementsByTagName('head')[0],
+        s=d.createElement('script');
+    s.setAttribute('language', 'javascript');
+    s.setAttribute('type', 'text/javascript');
+    s.setAttribute('src', uri);
+    h.appendChild(s);
+    window.CSSTEST_LOADED = true;
+})());">
+    cssTest
+</a>
+</body>
+</html>

@@ -1,0 +1,5 @@
+$.anime = {
+    algorithms: {
+        ease: { }
+    }
+}

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>$.form</title>
+    <style>
+        fieldset {
+            border: solid 1px #f0f0f0;
+            position: absolute;
+        }
+        fieldset.css-form1 {
+            left: 0px;
+            top: 0px;
+            width: 400px;
+        }
+        fieldset.css-form2 {
+            left: 0;
+            top: 240px;
+            width: 400px;
+        }
+        fieldset.css-form3 {
+            left: 440px;
+            top: 0;
+            width: 400px;
+        }
+        fieldset.css-master {
+            left: 0;
+            top: 0;
+            width: 870px;
+            height: 650px;
+        }
+        select, textarea {
+            width: 170px;
+        }
+        label {
+            display: inline-block;
+            width: 115px;
+        }
+        .form-outputs {
+            background: none repeat scroll 0 0 #FFFFFF;
+            border: medium solid;
+            height: 140px;
+            overflow: auto;
+            padding: 10px;
+            position: fixed;
+            right: 0;
+            width: 300px;
+        }
+        .css-master-controls {
+            position:absolute;
+            top:600px;
+        }
+    </style>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+</head>
+<body>
+    <fieldset class="css-master">
+            <legend>Master</legend>
+            
+        <fieldset class="css-form1">
+            <legend>Form1</legend>
+            <label id="" for="" class="">Alpha</label>
+            <input id="" class="js-alpha" type="text"/><br/><br/>
+            
+            <label id="" for="" class="">Numeric</label>
+            <input id="" class="js-numeric" type="text"/><br/><br/>
+            
+            <label id="" for="" class="">AlphaNumeric</label>
+            <input id="" class="js-alphaNumeric" type="text"/><br/><br/>
+            <div class="css-controls">
+                <button id="form1_submit" class="">Submit</button>
+                <button id="form1_save" class="">Save</button>
+                <button id="form1_load" class="">load</button>
+                <button id="form1_clear" class="">clear</button>
+            </div>
+        </fieldset>
+        
+        <fieldset class="css-form2">
+            <legend>Form2</legend>
+            <label id="" for="" class="">Currency</label>
+            <input id="" class="js-currency" type="text"/><br/><br/>
+            
+            <label id="" for="" class="">Date</label>
+            <input id="" class="js-date" type="text"/><br/><br/>
+            
+            <label id="" for="" class="">Phone</label>
+            <input id="" class="js-phone" type="text"/><br/><br/>
+            
+            <label id="" for="" class="">SSN</label>
+            <input id="" class="js-ssn" type="text"/><br/><br/>
+            
+            <label id="" for="" class="">Email</label>
+            <input id="" class="js-email" type="text"/><br/><br/>
+            
+            <div class="css-controls">
+                <button id="form2_submit" class="">Submit</button>
+                <button id="form2_save" class="">Save</button>
+                <button id="form2_load" class="">load</button>
+                <button id="form2_clear" class="">clear</button>
+            </div>
+        </fieldset>
+        
+        <fieldset class="css-form3">
+            <legend>Form3</legend>
+            <label id="" for="" class="">Radios</label><br/>
+            <label id="" for="" class="">Radio1</label>
+            <input id="" name="radio" class="js-radio1" type="radio" value="radio1" checked="checked"/><br/>
+            <label id="" for="" class="">Radio2</label>
+            <input id="" name="radio" class="js-radio2" type="radio" value="radio2"/><br/>
+            <label id="" for="" class="">Radio3</label>
+            <input id="" name="radio" class="js-radio3" type="radio" value="radio3"/><br/><br/>
+            
+            <label id="" for="" class="">Checkboxes</label><br/>
+            <label id="" for="" class="">Checkbox1</label>
+            <input id="" class="js-checkbox1" type="checkbox" value="checkbox1"/><br/>
+            <label id="" for="" class="">Checkbox2</label>
+            <input id="" class="js-checkbox2" type="checkbox" value="checkbox2"/><br/>
+            <label id="" for="" class="">Checkbox3</label>
+            <input id="" class="js-checkbox3" type="checkbox" value="checkbox3"/><br/><br/>
+            
+            <label id="" for="" class="">Single Select</label><br/>
+            <select id="" class="js-select-single">
+                <optgroup>
+                    <option value="">Select One</option>
+                    <option value="one,two,three,four,five,six">Select All</option>
+                </optgroup>
+                <optgroup>
+                    <option value="one">one</option>
+                    <option value="two">two</option>
+                    <option value="three">three</option>
+                </optgroup>
+                <optgroup>
+                    <option value="four">four</option>
+                    <option value="five">five</option>
+                    <option value="six">six</option>
+                </optgroup>
+            </select><br/><br/>
+            
+            <label id="" for="" class="">Multi Select</label><br/>
+            <select id="" class="js-select-multi" multiple="multiple">
+                <optgroup>
+                    <option value="one">one</option>
+                    <option value="two">two</option>
+                    <option value="three">three</option>
+                </optgroup>
+                <optgroup>
+                    <option value="four">four</option>
+                    <option value="five">five</option>
+                    <option value="six">six</option>
+                </optgroup>
+            </select><br/><br/>
+            
+            <label id="" for="" class="">Textarea</label><br/>
+            <textarea id="" class="js-textarea" cols="10" rows="5"></textarea><br/><br/>
+            
+            <div class="css-controls">
+                <button id="form3_submit" class="">Submit</button>
+                <button id="form3_save" class="">Save</button>
+                <button id="form3_load" class="">load</button>
+                <button id="form3_clear" class="">clear</button>
+            </div>
+        </fieldset>
+        
+        <div class="css-master-controls">
+            <button id="master_submit" class="">Submit</button>
+            <button id="master_save" class="">Save</button>
+            <button id="master_load" class="">load</button>
+            <button id="master_clear" class="">clear</button>
+        </div>
+    </fieldset>
+
+    <div class="form-outputs">
+        <div>
+            <span>isValid()</span>
+            <div class="js-output-isvalid"></div>
+        </div><hr/>
+        <div>
+            <span>isEmpty()</span>
+            <div class="js-output-isempty"></div>
+        </div><hr/>
+        <div>
+            <span>read().toJson()</span>
+            <div class="js-output-read-toJson"></div>
+        </div><hr/>
+        <div>
+            <span>read().toQueryString()</span>
+            <div class="js-output-read-toQueryString"></div>
+        </div>
+    </div>
+
+    <script language="javascript" type="text/javascript">
+        $(function(){
+            var alpha = $.field($(".js-alpha")[0])
+                            .spec($.fields.specs.alpha)
+                            .required(),
+                numeric = $.field($(".js-numeric")[0])
+                            .spec($.fields.specs.numeric)
+                            .required(),
+                alphaNumeric = $.field($(".js-alphaNumeric")[0])
+                            .spec($.fields.specs.alphaNumeric)
+                            .required(),
+                currency = $.field($(".js-currency")[0])
+                            .spec($.fields.specs.currency)
+                            .required(),
+                date = $.field($(".js-date")[0])
+                            .spec($.fields.specs.date)
+                            .required(),
+                phone = $.field($(".js-phone")[0])
+                            .spec($.fields.specs.phone)
+                            .required(),
+                ssn = $.field($(".js-ssn")[0])
+                            .spec($.fields.specs.ssn)
+                            .required(),
+                email = $.field($(".js-email")[0])
+                            .spec($.fields.specs.email)
+                            .required(),
+                radioset = $.radioset()
+                                .add($(".js-radio1")[0])
+                                .add($(".js-radio2")[0])
+                                .add($(".js-radio3")[0]),
+                checkbox1 = $.checkbox($(".js-checkbox1")[0]),
+                checkbox2 = $.checkbox($(".js-checkbox2")[0]),
+                checkbox3 = $.checkbox($(".js-checkbox3")[0]),
+                
+                singleSelect = $.select($(".js-select-single")[0]),
+                multiSelect = $.select($(".js-select-multi")[0]),
+                textarea = $.field($(".js-textarea")[0]).required(),
+
+                form1 = $.form().name("form1")
+                            .add("alpha", alpha)
+                            .add("numeric", numeric)
+                            .add("alphaNumeric", alphaNumeric),
+                form2 = $.form().name("form2")
+                            .add("currency", currency)
+                            .add("date", date)
+                            .add("phone", phone)
+                            .add("ssn", ssn)
+                            .add("email", email),
+                form3 = $.form().name("form3")
+                            .add("radioset", radioset)
+                            .add("checkbox1", checkbox1)
+                            .add("checkbox2", checkbox2)
+                            .add("checkbox3", checkbox3)
+                            .add("singleSelect", singleSelect)
+                            .add("multiSelect", multiSelect)
+                            .add("textarea", textarea),
+                master = $.form().name("master")
+                            .add("form1", form1)
+                            .add("form2", form2)
+                            .add("form3", form3);
+                
+            function updateOutput(form) {
+                $.dom($(".js-output-isvalid")[0]).html(form.isValid());
+                $.dom($(".js-output-isempty")[0]).html(form.isEmpty());
+                $.dom($(".js-output-read-toJson")[0]).html(form.read().toJson());
+                $.dom($(".js-output-read-toQueryString")[0]).html(form.read().toQueryString());
+            }
+            
+            form1.onSubmit(function(form){ updateOutput(form); });
+            form2.onSubmit(function(form){ updateOutput(form); });
+            form3.onSubmit(function(form){ updateOutput(form); });
+            master.onSubmit(function(form){ updateOutput(form); });
+            
+            var format = "#{0}_{1}",
+                actions = $.list(["submit", "save", "load", "clear"]);
+            $.hash({
+                "form1":form1,
+                "form2":form2,
+                "form3":form3,
+                "master":master
+            }).each(function(f){
+                actions.each(function(a){
+                    $.dom($($.str.format(format, f.key, a))[0]).onclick(f.value[a], f.value);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

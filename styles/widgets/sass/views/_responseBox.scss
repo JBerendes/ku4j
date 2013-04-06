@@ -1,0 +1,23 @@
+.ku-responsebox{
+    position: absolute;
+    border: solid 1px #ccc;
+    overflow: hidden;
+    z-index:1001;
+}
+.ku-responsebox-content{
+    position:absolute;
+    background: none repeat scroll 0 0 #FFFFFF;
+    padding:20px;
+}
+.ku-window-disabled{
+    background: none repeat scroll 0 0 #000000;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    opacity: .3;
+    -moz-opacity: .3;
+    filter:alpha(opacity=30);
+}

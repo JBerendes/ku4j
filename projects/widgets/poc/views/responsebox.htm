@@ -1,0 +1,74 @@
+<!DOCTYPE >
+<HTML>
+<head>
+    <style>
+        html{
+            font-family: Arial;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+        }
+        a{
+            color: #0aa;
+            cursor: pointer;
+        }
+        .ku-responsebox{
+            position: absolute;
+            border: solid 1px #ccc;
+            background: #f3f3f3;
+            overflow: hidden;
+            z-index:1001;
+        }
+        .ku-responsebox-content{
+            position:absolute;
+            background: none repeat scroll 0 0 #FFFFFF;
+            padding:20px;
+        }
+        .ku-window-disabled{
+            background: none repeat scroll 0 0 #000000;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            opacity: .3;
+            -moz-opacity: .3;
+            filter:alpha(opacity=30).
+        }
+    </style>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+</head>
+<body>
+    <div>
+        <h3>$.responsebox()</h3>
+    </div>
+    <div id="worksheet">
+        <textarea id="content" rows="10" cols="20" onkeyup="/*responsebox.content(this.value)*/">
+        </textarea><br/><br/>
+        <a onclick="responsebox.open();">open</a><br/>
+        <a onclick="responsebox.close();">close</a><br/>
+        <a onclick="responsebox.calibrate();">calibrate</a><br/>
+        <a onclick="responsebox.transition($.field($('#content')[0]).value());">transition</a><br/>
+        <a onclick="responsebox.disableWindow();">disableWindow</a><br/>
+        <a onclick="responsebox.enableWindow();">enableWindow</a><br/>
+        <a onclick="openRandom();">openRandom</a>
+    </div>
+    <script type="text/javascript" language="javascript">
+        function openRandom(){
+            return  $.responsebox()
+                .positionStrategy(function(){ var s = $.window().dims(); return $.coord.random(s.x(), s.y()); })
+                .content($.ele("content").value).open();
+        }
+
+        var responsebox;
+
+        $(function(){
+            responsebox = $.responsebox()
+                                .content('<img height="100" width="100" src="http://download.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=ku4j&DownloadId=235284&Build=17889"/>');
+        });
+
+    </script>
+</body>
+</html>

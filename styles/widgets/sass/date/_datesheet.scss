@@ -1,0 +1,44 @@
+.ku-datesheet-date {
+	border: 1px solid #CCCCCC;
+    cursor: default;
+    font-size: 10px;
+    height: 33px;
+    padding: 1px 4px;
+    text-align: right;
+    vertical-align: bottom;
+    width: 38px;
+}
+.ku-datesheet-date:hover {
+    background:#e0e0e0;
+}
+.ku-datesheet-current {
+    color: #000;
+}
+.ku-datesheet-other {
+    color: #bbb;
+}
+.ku-datesheet-lastMonth {
+    color: #aaa;
+}
+.ku-datesheet-thisMonth {
+	color: #000;
+}
+.ku-datesheet-nextMonth {
+    color: #aaa;
+}
+.ku-datesheet-weekday {
+    background: none repeat scroll 0 0 #fff;
+}
+.ku-datesheet-weekend {
+    background: none repeat scroll 0 0 #f0f0f0;
+}
+.ku-datesheet-past {
+    color: #ccc;
+}
+.ku-datesheet-present {    
+	color: #00aa00;
+}
+.ku-datesheet-date-selected,
+.ku-datesheet-date-selected:hover{
+   background: none repeat scroll 0 0 #CCFFBB;
+}

@@ -1,0 +1,5 @@
+.ku-dragger-dragger { cursor:default; }
+.ku-dragger-sizer { cursor:default; }
+.ku-dragger-grabbed { z-index:3000; }
+.ku-dragger-dragger.ku-dragger-grabbed { cursor:move; position:absolute; }
+.ku-dragger-sizer.ku-dragger-grabbed { cursor:nw-resize;}

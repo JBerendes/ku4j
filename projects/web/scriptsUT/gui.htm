@@ -1,0 +1,90 @@
+<!DOCTYPE>
+<html>
+<head>
+  <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+    <script type="text/javascript" src="../../../_dependencies/jquery.js"></script>
+    <script type="text/javascript" src="../../../_dependencies/qUnit.js"></script>
+  
+  <script type="text/javascript" src="../../base/ku4j-base.js"></script>
+  <script type="text/javascript" src="../../capabilities/ku4j-capabilities-min.js"></script>
+  <script type="text/javascript" src="../../data/ku4j-data.js"></script>
+  <script type="text/javascript" src="../ku4j-web.js"></script>
+  
+  <!-- Tests -->
+  <script type="text/javascript" src="tests/ajax/ajax.js"></script>
+  <script type="text/javascript" src="tests/base/clearNode.js"></script>
+  <script type="text/javascript" src="tests/base/create.js"></script>
+  <script type="text/javascript" src="tests/base/ele.js"></script>
+  <script type="text/javascript" src="tests/base/evt.js"></script>
+  <script type="text/javascript" src="tests/base/finders.js"></script>
+
+
+  <script type="text/javascript" src="tests/bom/browser.js"></script>
+  <script type="text/javascript" src="tests/bom/window.js"></script>
+  <script type="text/javascript" src="tests/bom/dom.js"></script>
+
+  <script type="text/javascript" src="tests/form/field.js"></script>
+  <script type="text/javascript" src="tests/form/form.js"></script>
+  <script type="text/javascript" src="tests/form/specs.js"></script>
+</head>
+<body>
+  <h1 id="qunit-header">ku4j</h1>
+  <h2 id="qunit-banner"></h2>
+  <div id="qunit-testrunner-toolbar"></div>
+  <h2 id="qunit-userAgent"></h2>
+  <ol id="qunit-tests"></ol>
+  <div id="qunit-fixture"></div>
+  
+  <div id="worksheet">
+    <div id="node">node</div>
+    <div id="ele">ele</div>
+    
+  <!-- Field -->
+    <label for="Field">Field</label><br/>
+    <input id="Field" type="text" /><br/>
+    
+  <!-- Form -->
+    <label for="FirstName">FirstName</label><br/>
+    <input id="FirstName" type="text" /><br/>
+    <label for="LastName">LastName</label><br/>
+    <input id="LastName" type="text" /><br/>
+    <label for="Birthday">Birthday</label><br/>
+    <input id="Birthday" type="text" /><br/>
+    <label for="Salary">Salary</label><br/>
+    <input id="Salary" type="text" /><br/>
+    <label for="Title">Title</label><br/>
+    <select id="Title" name="Title" multiple="multiple">
+      <option value="">Select One</option>
+      <optgroup label="Management">
+        <option value="0">Director</option>
+        <option value="1">Senior</option>
+        <option value="2">Middle</option>
+      </optgroup>
+      <optgroup label="Labor">
+        <option value="3">Skilled</option>
+        <option value="4">General</option>
+      </optgroup>
+    </select>
+    
+    <br/>
+    
+    
+    <button onclick="myForm.saveAs('myForm');">Save</button>
+    <button onclick="myForm.load('myForm');">Load</button>
+
+    <button id="eventButton">Event</button>
+  </div>
+  
+  <script type="text/javascript">
+    var myForm = {};
+    $(function(){
+      myForm = $.form()
+      .add("FirstName", $.field($("#FirstName")[0]))
+      .add("LastName", $.field($("#LastName")[0]))
+      .add("Birthday", $.field($("#Birthday")[0]))
+      .add("Salary", $.field($("#Salary")[0]))
+      .add("Title", $.select($("#Title")[0]).multiple());
+    });
+  </script>
+</body>
+</html>

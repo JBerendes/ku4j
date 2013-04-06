@@ -1,0 +1,12 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset";
+
+@import "anime/_imports.scss";
+@import "date/_imports.scss";
+@import "forms/_imports.scss";
+@import "tooltips/_imports.scss";
+@import "views/_imports.scss";

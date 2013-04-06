@@ -1,0 +1,48 @@
+<style type="text/css">
+.css-cssTest-container{background-color:#f6f6f6}
+.css-cssTest-close{background-color:#f88}
+.passed{background-color:#bFb;border:2px solid #7F7;color:#393}
+.failed{background-color:#fbb;border:2px solid #F77}
+.passed .css-cssTest-find,.passed .css-cssTest-check,.passed .css-cssTest-notify{display:none}
+.failed .css-cssTest-notify,.failed .css-cssTest-failed{color:#933;font-weight:700}
+.failed .css-cssTest-check,.failed .css-cssTest-passed{color:#393;font-weight:700}
+.failed .css-cssTest-test-name{background-color:red;color:#FFF;font-weight:700;padding:5px}
+
+.css-cssTest-window{width:500px;height:400px;right:0;top:0;position:absolute;z-index:9999;font-family:Arial,"MS Trebuchet",sans-serif;font-size:.9em}
+.css-cssTest-container{height:100%;overflow:auto;padding:10px}
+.css-cssTest-close{width:17px;height:17px;position:absolute;right:20px;text-align:center;line-height:17px}
+.css-cssTest-test,.css-cssTest-results{padding-bottom:5px}
+.css-cssTest-inline{display:inline}
+.css-cssTest-results .css-cssTest-inline{margin-right:10px}
+.css-cssTest-results{padding:5px}
+.css-cssTest-check,.css-cssTest-notify{padding:0 5px}
+.passed .css-cssTest-test-name,.failed .css-cssTest-find{padding:5px 5px 0}
+.css-cssTest-test.passed .css-cssTest-test-name:before{content:"\2713\00A0"}
+.css-cssTest-test.failed .css-cssTest-test-name:before{content:"\2612\00A0"}
+</style>
+
+<script id="testTemplate" type="text/x-jquery-tmpl">
+<div class='css-cssTest-test {{#if pass}}passed{{else}}failed{{/if}}'>
+  <div class='css-cssTest-test-name'>{{=name}}</div>
+  <div class='css-cssTest-test-notify'>{{=html!}}</div>
+</div>
+</script>
+<script id="totalTemplate" type="text/x-jquery-tmpl">
+<div class='css-cssTest-results {{#if fail gt=0}}failed{{else}}passed{{/if}}'>
+  <div class='css-cssTest-inline css-cssTest-attempted'>Attempted: <span class='bdt-cssTest-attempted'>{{=attempted}}</span></div>
+  <div class='css-cssTest-inline css-cssTest-passed'>Passed:<span class='bdt-cssTest-passed'>{{=pass}}</span></div>
+  <div class='css-cssTest-inline css-cssTest-failed'>Failed:<span class='bdt-cssTest-failed'>{{=fail}}</span></div>
+</div>
+</script>
+
+<div class='css-cssTest-window'>
+  <div class='css-cssTest-header'>
+    <button class='css-cssTest-load'>Load</button>
+    <button class='css-cssTest-run'>Run</button>
+    <div class='css-cssTest-close'>X</div>
+  </div>
+	<div class='css-cssTest-container'>
+    <div class='bby-totals'></div>
+		<div class='css-cssTest-content bby-tests'></div>
+	</div>
+</div>

@@ -1,0 +1,173 @@
+<!DOCTYPE >
+<HTML>
+<head>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+    <style>
+        html{
+            font-family: Arial;
+        }
+        body{
+            width: 500px;
+            margin:auto;
+        }
+        a{
+            color: #0aa;
+            cursor: pointer;
+        }
+        #sprite2 {
+            border: solid 10px;
+        }
+        #worksheet{
+            border: solid 1px #c00;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+        }
+        .ku-tooltip-pointer{
+            border: solid 2px #aaa;
+            width:10px;
+            height:10px;
+        }
+        .ku-tooltip{
+            border: solid 2px #aaa;
+            padding: 10px;
+        }
+        .ku-pinner{
+            position: absolute;
+        }
+        .ku-dragger-grabbed{
+            cursor: move;
+            z-index: 1000;
+        }
+        .ku-window-disabled{
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h3>
+        $.sprite()
+        </h3>
+        <div class="css-image">
+            Current Function | <span id="funcType">sizeTo</span>
+            <br />
+            Current Type | <span id="type">to</span>
+            <br />
+            Current Coord | <span id="currentCoord"></span>
+            <br />
+            Current Opacity | <span id="currentOpacity"></span>
+            <br/>
+            <a onclick="setFunction('sizeTo');">sizeTo</a> |
+            <a onclick="setFunction('fitTo');">fitTo</a> |
+            <a onclick="setFunction('pinTo');">pinTo</a> |
+            <a onclick="setFunction('growTo');">growTo</a> |
+            <a onclick="setFunction('fadeTo');">fadeTo</a>
+            <br/>
+            <a onclick="setType('to');">to</a> |
+            <a onclick="setType('ease');">ease</a> |
+            <a onclick="setType('spring');">spring</a>
+            <br/>
+            Dragger: 
+            <a onclick="setDraggerOn();">ON</a> |
+            <a onclick="setDraggerOff();">OFF</a>
+            <br/>
+            <a onclick="setDragger();">dragger</a> |
+            <a onclick="setSizer();">sizer</a>
+            <br/><br/>
+            <label for="x">X:</label>
+            <input id="x" class="" value="100" type="text">
+            <br/>
+            <label for="y">Y:</label>
+            <input id="y" class="" value="100" type="text">
+            <br/>
+            <label for="force">force:</label>
+            <input id="force" class="" value=".4" type="text">
+            <br/>
+            <label for="mu">mu:</label>
+            <input id="mu" class="" value=".9" type="text">
+            <br/>
+            <label for="opacity">Opacity:</label>
+            <input id="opacity" class="" value="100" type="text">
+            <br/><br/>
+            <button onclick="exec();">Go</button>
+        </div>
+    </div>
+    <img id="sprite" src="http://download.codeplex.com/Project/Download/FileDownload.aspx?ProjectName=ku4j&amp;DownloadId=235284&amp;Build=17889"
+             alt="image" style="top:100px;left:600px" />
+        
+    <div id="worksheet">
+            
+        <div id="sprite2">
+            <div id="sprite3">content</div>
+            <span>more content</span>
+            <ul>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+                <li>List Item 4</li>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+                <li>List Item 4</li>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+                <li>List Item 4</li>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+                <li>List Item 4</li>
+                <li>List Item 1</li>
+                <li>List Item 2</li>
+                <li>List Item 3</li>
+                <li>List Item 4</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var sprite = $.sprite($("#sprite")[0]),
+            x = function(){ return $("#x").val(); },
+            y = function(){ return $("#y").val(); },
+            force = function(){ return parseFloat($("#force").val()); },
+            mu = function(){ return parseFloat($("#mu").val()); },
+            coord = function(){ return $.coord(parseFloat(x()), parseFloat(y())); },
+            opacity = function(){ return parseFloat($("#opacity").val()); },
+            func = "sizeTo";
+            
+        function setFunction(str){
+            func = str;
+            $("#funcType").html(str);
+        }
+        function setType(str){
+            sprite[str]();
+            $("#type").html(str);
+        }
+        
+        function setDraggerOn(){ sprite.dragOn(); }
+        function setDraggerOff(){ sprite.dragOff(); }
+        function setDragger(){ sprite.dragger(); }
+        function setSizer(){ sprite.sizer(); }
+        
+        function exec() { 
+            var b = /fadeTo/i.test(func),
+                c = b ? opacity() : coord(),
+                d = b ? "#currentOpacity" : "#currentCoord";
+            sprite.force(force()).mu(mu())[func](c);
+                
+            $(d).html(c.toString());
+        }
+       /* 
+        var ws = $.scrollPanel($("#worksheet")[0])
+            .content(
+                $.scrollPanel($("#sprite2")[0])
+                    .content($.sprite($("#sprite3")[0]).dom()).dom());
+       */
+    </script>
+</body>
+</html>

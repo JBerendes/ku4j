@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>My Test Page</title>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+
+    <style type="text/css">
+
+        div{
+            background-color: #ccc;
+            font-size: 30px;
+        }
+
+        .css-testColor{
+            color: #ff00ff;
+            top: 200px;
+        }
+
+        .css-brightRed{
+            color: #ff0000;
+            top: 0px;
+        }
+
+        #myId{
+        color: #F0DD2C;
+        text-decoration: underline;
+        text-shadow: #333 1px 1px 5px;
+        font-size: 74px;
+        position: absolute;
+        }
+
+        .js-dragMe{ position: absolute;}
+
+    </style>
+
+</head>
+<body>
+
+    <div class="js-dragMe css-brightRed">
+        Hello World
+    </div>
+
+    <div class="js-dragMe css-testColor">
+        Hello Jacob
+    </div>
+
+    <p style="width:100px; border:#000000 1px solid">
+        This is a paragraph with way too much information
+    </p>
+
+    <a id="myId" href="http://www.google.com" target="_blank">Go to google</a>
+
+    <script type="text/javascript" language="javascript">
+        $(function(){
+            $.sprite($(".js-dragMe")[0]);
+            $.sprite($(".js-dragMe")[1]);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+    <title></title>
+        <style type="text/css">
+            html {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: #033;
+                    font-size:12px;
+            }
+            table {
+                    margin:20px 0;
+                    width:960px;
+                    border-collapse:collapse;
+                    border:solid 1px #ccc;
+            }
+            caption { text-align:left; }
+            tr { padding:5px; }
+            td { 
+                    width:3px; 
+                    border:solid 1px #ccc; 
+            }
+            td+td { width:400px; }
+            td+td+td { width:500px; }
+        </style>
+</head>
+<body>
+    <h2>$.abstractState</h2>
+	<pre>
+            var state = {};
+            state.playing = function(){state.playing.base.call(this, state); }
+            state.playing.prototype = {
+                play: function(){ return "Already playing"; },
+                stop: function(){ this.state("stopped"); return "Stopping"; }  
+            }
+            $.ext(state.playing, $.abstractState);
+            
+            state.stopped = function(){ state.stopped.base.call(this, state); }
+            state.stopped.prototype = {
+                play: function(){ this.state("playing"); return "Playing"; },
+                stop: function(){ return "Already stopped"; }
+            }
+            $.ext(state.stopped, $.abstractState);
+            
+            mediaPlayer = function(state){ mediaPlayer.base.call(this, state); }
+            mediaPlayer.prototype = {
+                play: function(){ return this._state.play(); },
+                stop: function(){ return this._state.stop(); }
+            }
+            $.ext(mediaPlayer, $.abstractContext);
+            
+            //Implementation
+            var stopped = new state.stopped();
+                player = new mediaPlayer(stopped);
+            
+            console.log(player.stop());
+            console.log(player.play());
+            //console.log(player.play());
+            //console.log(player.stop());
+            //console.log(player.stop());
+	</pre>
+    <hr />
+    <table cellpadding="10">
+        <caption>
+            Constructors
+        </caption>
+        <tbody>
+            <tr>
+                <th>&nbsp;</th>
+                <th>API</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>$.abstractState(states:Object)</td>
+                <td>Description</td>
+            </tr>
+        </tbody>
+    </table>
+    <table cellpadding="10">
+        <caption>
+            Properties
+        </caption>
+        <tbody>
+            <tr>
+                <th>&nbsp;</th>
+                <th>API</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>property</td>
+                <td>context(context:$.abstractContext):Object</td>
+                <td></td>
+            <tr/>
+            <tr>
+                <td>setter</td>
+                <td>states(context:$.abstractContext):this</td>
+                <td></td>
+            <tr/>
+            <tr>
+                <td>setter</td>
+                <td>state(state:String):this</td>
+                <td>Sets the state of the context to the state having the name passed.</td>
+            <tr/>
+        </tbody>
+    </table>
+    <table cellpadding="10">
+        <caption>
+            Methods
+        </caption>
+        <tbody>
+            <tr>
+                <th>&nbsp;</th>
+                <th>API</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>API</td>
+                <td>Description</td>
+			</tr>
+        </tbody>
+    </table>
+</body>
+</html>

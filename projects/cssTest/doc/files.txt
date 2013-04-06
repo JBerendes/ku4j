@@ -1,0 +1,1 @@
+http://localhost/graffiti/doc/suitetest.js

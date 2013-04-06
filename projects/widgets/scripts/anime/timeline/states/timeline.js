@@ -1,0 +1,1 @@
+var timeline_instance = new timeline(30, new timeline.stopped()).start();

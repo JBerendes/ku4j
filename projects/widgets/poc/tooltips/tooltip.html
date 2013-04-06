@@ -1,0 +1,39 @@
+<!DOCTYPE >
+<HTML>
+<head>
+    <style>
+        .css-information {
+            border: 1px solid #CCCCCC;
+            height: 200px;
+            left: 400px;
+            position: absolute;
+            top: 100px;
+            width: 200px;
+        }
+        .ku-tooltip {
+            position: absolute;
+            border: solid 2px #ccc;
+        }
+        .ku-tooltip-pointer {
+            position: absolute;
+            border: solid 4px #ccc;
+            width: 10px;
+            height: 10px;
+        }
+    </style>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+</head>
+<body>
+    <div class="js-info css-information">
+        Information
+    </div>
+    <script language="javascript" type="text/javascript">
+        var tooltip;
+        $(function(){
+            tooltip = $.tooltip();
+            $.dom($(".js-info")[0]).onclick(function(){ tooltip.show("This is a tooltip").at(this, "below", "above"); });
+        });
+    </script>
+</body>
+</html>

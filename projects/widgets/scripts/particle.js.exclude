@@ -1,0 +1,9 @@
+function particle(){
+
+}
+particle.prototype = {
+    hits: function(other){
+
+    }
+}
+$ext(particle, $.Class);

@@ -1,0 +1,66 @@
+.ku-calendar {       
+    font-size: 20px;
+    padding: 8px;
+	width: 400px
+}
+.ku-calendar-prevButton {
+	postion: relative;
+	border: 1px solid #CCCCCC;
+    height: 20px;
+    width: 20px;
+	float: left;
+	cursor: pointer;
+}
+.ku-calendar-nextButton {
+	postion: relative;
+	border: 1px solid #CCCCCC;
+    height: 20px;
+    width: 20px;
+	float: right;
+	cursor: pointer;
+}
+.ku-calendar .ku-table-caption {
+    margin: auto;
+    position: relative;
+    text-align: center;
+    width: 400px;
+}
+.ku-calendar .ku-table-head-content {
+    display: block;
+    font-size: 10px;
+    margin: 8px auto;
+    position: relative;
+    width: 20px;
+}
+.ku-calendar-button {
+    position:relative;
+    height: 13px;
+    width: 12px;
+    cursor: pointer;
+}
+.ku-calendar-prev{
+    -moz-border-radius: 3px 0 0 0;
+    border-top: 1px solid #555;
+    border-left: 1px solid #555;
+    background:#f3f3f3;
+    float:left;
+}
+.ku-calendar-next{
+    -moz-border-radius: 0 3px 0 0;
+    border-top: 1px solid #555;
+    border-right: 1px solid #555;
+    background:#f3f3f3;
+    float:right;
+}
+.ku-calendar .ku-table{
+    border-collapse:collapse;
+    width:100%;
+}
+.ku-calendar .ku-table-body{
+}
+.ku-calendar .ku-table .ku-row{
+    text-align: center;
+}
+.ku-calendar .ku-table .ku-row th{
+    
+}

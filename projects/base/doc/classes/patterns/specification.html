@@ -1,0 +1,101 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+    <title>$.spec</title>
+        <style type="text/css">
+            html {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: #033;
+                    font-size:12px;
+            }
+            table {
+                    margin:20px 0;
+                    width:960px;
+                    border-collapse:collapse;
+                    border:solid 1px #ccc;
+            }
+            caption { text-align:left; }
+            tr { padding:5px; }
+            td { 
+                    width:3px; 
+                    border:solid 1px #ccc; 
+            }
+            td+td { width:400px; }
+            td+td+td { width:500px; }
+        </style>
+</head>
+<body>
+    <h2>$.spec</h2>
+	<pre>
+            var qualifiesForAction = $.spec(function(v){ return v === 3 || v === 6; }),
+                requiresProcessing = $.spec(function(v){ return $.isNumber(v); }),
+                isEligibleToday = $.spec(function(v){ return $.isZero(v); }),
+                
+                processor1Spec = requiresProcessing.and(isEligibleToday),
+                processor2Spec = qualifiesForAction.or(isEligibleToday).and(requiresProcessing),
+                
+                processor = function(spec){ this._spec = spec; };
+                processor.prototype = {
+                    process: function(n) { if(this._spec.isSatisfiedBy(n)) alert("PROCESSED"); }
+                }
+            
+            var processor1 = new processor(processor1Spec),
+                processor2 = new processor(processor2Spec);
+            
+            processor1.process(3); //will not process
+            processor2.process(3); //will process
+	</pre>
+    <hr />
+    <table cellpadding="10">
+        <caption>
+            Constructors
+        </caption>
+        <tbody>
+            <tr>
+                <th>&nbsp;</th>
+                <th>API</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>$.spec(f:Function(test:Object):bool)</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <table cellpadding="10">
+        <caption>
+            Methods
+        </caption>
+        <tbody>
+            <tr>
+                <th>&nbsp;</th>
+                <th>API</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>and(spec:$.spec):$.spec</td>
+                <td>Returns an AND specfication</td>
+	    </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>or(spec:$.spec):$.spec</td>
+                <td>Returns an OR specification</td>
+	    </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>not(spec:$.spec):$.spec</td>
+                <td>Returns the inverse of the passed specification</td>
+	    </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>isSatisfiedBy(test:Object):bool</td>
+                <td>Returns true if the test object satisfies the specification</td>
+	    </tr>
+        </tbody>
+    </table>
+</body>
+</html>

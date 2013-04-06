@@ -1,0 +1,85 @@
+<!DOCTYPE >
+<HTML>
+<head>
+    <style>
+        .css-calendar { }
+        .ku-calendar {
+            font-family: Helvetica,Arial,sans-serif;
+        }
+        .ku-calendar-prevButton {
+            float: left;
+            border: solid 1px #ccc;
+            width: 16px;
+            height: 16px;
+        }
+        .ku-calendar-nextButton {
+            float: right;
+            border: solid 1px #ccc;
+            width: 16px;
+            height: 16px;
+        }
+        .ku-calendar .ku-sheet { }
+        .ku-calendar .ku-sheet .ku-table {
+            border-collapse: collapse;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-colgroup { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-caption {
+            font-size: 12px;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-head { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-head .ku-table-head-row { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-head .ku-table-head-row th {
+            font-size: 8px;
+            font-weight: normal;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row.ku-table-row-even { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row.ku-table-row-odd { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-date {
+            border: 1px solid #CCCCCC;
+            font-size: 11px;
+            padding: 3px;
+            text-align: right;
+            width: 16px;
+            cursor: pointer;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-date-selected {
+            background: #aaffaa;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-past {
+        
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-present { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-future {
+            
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-thisMonth { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-nextMonth {
+            color: #ccc;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-weekend {
+            background: none repeat scroll 0 0 #F0F0F0;
+        }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-weekday { }
+        .ku-calendar .ku-sheet .ku-table .ku-table-body .ku-table-row .ku-datesheet-lastMonth {
+            color: #ccc;
+        }
+        
+    </style>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script> 
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+</head>
+<body>
+    <div class="js-calendar css-calendar"></div>
+    <script language="javascript" type="text/javascript">
+        var calendar;
+        $(function(){
+            calendar = $.calendar()
+                .appendTo($(".js-calendar")[0])
+                .showDates();
+        });
+    </script>
+</body>
+</html>

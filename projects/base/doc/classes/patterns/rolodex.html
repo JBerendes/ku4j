@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+    <title></title>
+        <style type="text/css">
+            html {
+                    font-family: Arial, Helvetica, sans-serif;
+                    color: #033;
+                    font-size:12px;
+            }
+            table {
+                    margin:20px 0;
+                    width:960px;
+                    border-collapse:collapse;
+                    border:solid 1px #ccc;
+            }
+            caption { text-align:left; }
+            tr { padding:5px; }
+            td { 
+                    width:3px; 
+                    border:solid 1px #ccc; 
+            }
+            td+td { width:400px; }
+            td+td+td { width:500px; }
+        </style>
+</head>
+<body>
+    <h2>$.rolodex</h2>
+	<pre>
+	</pre>
+    <hr />
+    <table cellpadding="10">
+        <caption>
+            Constructors
+        </caption>
+        <tbody>
+            <tr>
+                <th>&nbsp;</th>
+                <th>API</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>$.rolodex(subject:Object)</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <table cellpadding="10">
+        <caption>
+            Properties
+        </caption>
+        <tbody>
+            <tr>
+                <th>&nbsp;</th>
+                <th>API</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>property</td>
+                <td>subject(subject:Object)</td>
+                <td>Gets or sets the subject to be iterated</td>
+	    <tr/>
+	    <tr>
+                <td>getter</td>
+                <td>current():Object</td>
+                <td>Gets the currently pointed to object</td>
+	    <tr/>
+        </tbody>
+    </table>
+    <table cellpadding="10">
+        <caption>
+            Methods
+        </caption>
+        <tbody>
+            <tr>
+                <th>&nbsp;</th>
+                <th>API</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>next():Object</td>
+                <td>Increments the pointer by one item and returns that item.</td>
+	    </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>prev():this</td>
+                <td>Decrements the pointer by one item and returns that item</td>
+	    </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>hasNext():bool</td>
+                <td>Increments the pointer by one item and returns that item</td>
+	    </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>hasPrev():bool</td>
+                <td>Decrements the pointer by one item and returns that item</td>
+	    </tr>
+        </tbody>
+    </table>
+</body>
+</html>

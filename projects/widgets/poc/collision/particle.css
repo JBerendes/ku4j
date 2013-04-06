@@ -1,0 +1,12 @@
+.css-particle-circle {
+    border: solid 1px #f00;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}
+.css-particle-square {
+    border: solid 1px #0f0;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+}

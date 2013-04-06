@@ -1,0 +1,86 @@
+<!DOCTYPE >
+<HTML>
+<head>
+    <script language="javascript" type="text/javascript" src="../../../../_dependencies/jquery.js"></script>
+    <script language="javascript" type="text/javascript" src="../../../../ku4j.js"></script>
+    <style>
+        a, input {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+        }
+        input {
+            position: absolute;
+            text-align: center;
+            border: solid thin #ccc;
+            border-radius: 9px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h3>$.pieChart()</h3>
+</div>
+<div id="worksheet">
+    <button onclick="showAsCircle();">Circle</button>
+    <button onclick="showAsColor();">Color</button>
+    <div>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+    </div>
+    <div>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+    </div>
+    <div>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+    </div>
+</div>
+<script type="text/javascript" language="javascript">
+
+    var charts;
+    function showAsCircle () { charts.each(function(chart){ chart.display($.circlePerspective()); }); }
+    function showAsColor () { charts.each(function(chart){ chart.display($.rectanglePerspective()); }); }
+
+    $(function(){
+        charts = $.list();
+        var tooltip = $.tooltip();
+
+        $.list(document.getElementsByTagName("a"))
+            .each(function(dom){
+                var chart = $.chart(dom, 10);
+
+                chart
+                    .onclick(function(){ chart.display($.inputPerspective()) })
+                    .onfocus(function(){ chart.display($.inputPerspective()) })
+                    .display($.circlePerspective());
+
+                charts.add(chart);
+            });
+    });
+</script>
+</body>
+</html>
