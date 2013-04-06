@@ -1,6 +1,5 @@
 .idea/compiler.xml
 .idea/workspace.xml
 ku4j.iml
-.DS_Store
-projects/.DS_Store
 *.komodoproject
+*.DS_Store
