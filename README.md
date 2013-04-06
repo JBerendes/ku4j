@@ -1,0 +1,4 @@
+ku4j&trade; is a stand-alone JavaScript framework that easily integrates with jQuery. Unlike the DOM-driven jQuery framework, ku4j&trade; is Class-driven. Though it was developed with DOM interaction in mind, it is rooted in domain-driven, object-oriented enterprise application development. To acheieve this ku4j was developed on top of $.Class: a base class that exposes a familiar object-oriented paradigm while staying true to JavaScript syntax.
+
+
+This fact allows developers to create extraordinarily robust and scaleable applications while being exposed to the very language that drives jQuery, Dojo, Mootools, ku4j and CoffeeScript, as well as earning the opportunity to grow and develop their knowledge of common patterns and development methods that have become defacto standard in the current age of application development.
