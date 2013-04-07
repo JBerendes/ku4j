@@ -1,0 +1,26 @@
+#buildRoot
+#  The name of a directory in the path that is the root of this project.
+#  This directory contains both the compass and production directories.
+#devRoot
+#  The name of the directory in the 'buildRoot' that is the compass project.
+#prodRoot
+#  The name of the directory in the 'buildRoot' where the production files are placed.
+#devFile
+#  The path to the source file from the 'devRoot' and including the name,
+#  but not the extension, of the file.
+#prodFile
+#  The path to the production file from the 'prodRoot' and including the name,
+#  but not the extension, of the file.
+#versionFile
+#  The path from 'buildRoot' and full file name, including extension, 
+#  of the file containing the version value 
+
+buildRoot: jsDevRoot
+nameSpace: jb
+devRoot: dev/projects
+prodRoot: prod
+painter:
+  projectRoot: painter  
+  devFile: jb-painter
+  prodFile: jb-painter-min
+  versionFile: version.txt
